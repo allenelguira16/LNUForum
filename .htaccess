@@ -1,0 +1,48 @@
+RewriteEngine On    # Turn on the rewriting engine
+
+Options			-Indexes
+
+RewriteBase		/LNUForum/ 
+
+
+RewriteRule		^ajax/$ includes/php/data-handler.php/ [NC,L]
+
+RewriteRule		^emoji/(.*)$ includes/php/emoji/emojiv2/$1 [NC,L]
+
+RewriteRule		^Login/?$ ?action=Login [NC,L]
+
+RewriteRule		^Icons/(.*)$ includes/php/icons/$1 [NC,L]
+
+RewriteRule 	^Search/([a-zA-Z0-9]+)/?$ ?action=search&query=$1 [NC,L]
+
+RewriteRule 	^Admin/?$ ?action=Admin	[NC,L]
+
+RewriteRule 	^Notifications/?$ ?action=notif	[NC,L]
+
+#RewriteRule 	^privacy/?$ ?action=privacy [NC,L]
+
+RewriteRule 	^Register/?$ ?action=Register [NC,L]
+
+RewriteRule 	^Profile/([a-zA-Z0-9\_]+)/?$ ?action=profile&user=$1 [NC,L]
+
+RewriteRule 	^Settings/?$ ?action=settings [NC,L]
+
+RewriteRule 	^Verify/?$ ?action=verify [NC,L]
+
+RewriteRule 	^Chat/?$ ?action=message [NC,L]
+
+RewriteRule 	^Chat/([a-zA-Z0-9\_]+)/?$ ?action=message&user=$1 [NC,L]
+
+RewriteRule		^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/Create?$ ?action=create&course=$1&subject=$2 [NC,L]
+
+RewriteRule		^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/Topic/([0-9]+)/(.*)?$ ?course=$1&subject=$2&topic_id=$3&title=$4 [NC,L]
+
+RewriteRule		^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9]+)/?$ ?course=$1&subject=$2&page=$3 [NC,L]
+
+RewriteRule		^([a-zA-Z]+)/?$ ?course=$1 [NC,L]
+
+
+
+#ErrorDocument 404 http://demo.collegeaintcheap.com/envato/htaccess/errors/404.html
+#ErrorDocument 403 http://demo.collegeaintcheap.com/envato/htaccess/errors/403.html
+#ErrorDocument 500 http://demo.collegeaintcheap.com/envato/htaccess/errors/500.html
